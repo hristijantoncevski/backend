@@ -8,17 +8,17 @@ import mk.ukim.finki.emt.model.enumeration.BookCategory;
 @Data
 public class BookDto {
     private String name;
-    private BookCategory bookCategory;
+    private BookCategory category;
+    private Long author;
     private Integer availableCopies;
-    private Long authorId;
 
     public BookDto() {
     }
 
-    public BookDto(String name, BookCategory bookCategory, Integer availableCopies, Long authorId) {
+    public BookDto(String name, BookCategory category, Long author, Integer availableCopies) {
         this.name = name;
-        this.bookCategory = bookCategory;
+        this.category = category;
         this.availableCopies = availableCopies;
-        this.authorId = authorId;
+        this.author = author;
     }
 }

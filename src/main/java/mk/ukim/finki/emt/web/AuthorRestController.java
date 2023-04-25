@@ -38,14 +38,14 @@ public class AuthorRestController {
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Author> save(@PathVariable Long id, @RequestBody AuthorDto authorDto) {
         return this.authorService.edit(id, authorDto)
                 .map(author -> ResponseEntity.ok().body(author))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Author> deleteById(@PathVariable Long id) {
         if(this.authorService.findById(id).isEmpty()) return ResponseEntity.notFound().build();
         this.authorService.deleteById(id);

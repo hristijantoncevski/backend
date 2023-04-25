@@ -33,14 +33,14 @@ public class CountryRestController {
                 .map(country -> ResponseEntity.ok().body(country))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     public ResponseEntity<Country> save(@PathVariable Long id, @RequestBody CountryDto countryDto) {
         return this.countryService.update(id, countryDto)
                 .map(country -> ResponseEntity.ok().body(country))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Country> deleteById(@PathVariable Long id) {
         if(this.countryService.findById(id).isEmpty()) return ResponseEntity.notFound().build();
         this.countryService.deleteById(id);

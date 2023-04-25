@@ -13,7 +13,7 @@ public interface BookService {
     List<Book> listAll();
     Page<Book> listBooksPaginated(Pageable pageable);
     Optional<Book> findById(Long id);
-    Optional<Book> create(BookDto productDto);
+    Optional<Book> create(BookDto bookDto);
     Optional<Book> update(Long id, BookDto bookDto);
     void deleteById(Long id);
     Optional<Book> take(Long id);
